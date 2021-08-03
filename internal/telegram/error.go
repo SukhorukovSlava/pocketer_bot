@@ -15,13 +15,13 @@ func (b *Bot) handleError(chatId int64, err error) {
 	msg := tgbotapi.NewMessage(chatId, "")
 	switch err {
 	case errInvalidUrl:
-		msg.Text = b.messages.Errors.InvalidLink
+		msg.Text = b.messages.InvalidLink
 	case errUnauthorized:
-		msg.Text = b.messages.Errors.Unauthorized
+		msg.Text = b.messages.Unauthorized
 	case errUnableToAddLink:
-		msg.Text = b.messages.Errors.UnableToAddLink
+		msg.Text = b.messages.UnableToAddLink
 	default:
-		msg.Text = b.messages.Errors.Default
+		msg.Text = b.messages.Default
 	}
 	b.bot.Send(msg)
 }
