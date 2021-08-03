@@ -11,23 +11,17 @@ var (
 	errUnableToAddLink = errors.New("unable to add link")
 )
 
-const (
-	invalidLink     = "Это невалидная ссылка!"
-	unauthorized    = "Вы не авторизированны! Для авторизации используй комаду /start"
-	unableToAddLink = "Упс, что-то пошло не так, я не смог добавить вашу ссылку!"
-)
-
 func (b *Bot) handleError(chatId int64, err error) {
 	msg := tgbotapi.NewMessage(chatId, "")
 	switch err {
 	case errInvalidUrl:
-		msg.Text = invalidLink
+		msg.Text = b.messages.Errors.InvalidLink
 	case errUnauthorized:
-		msg.Text = unauthorized
+		msg.Text = b.messages.Errors.Unauthorized
 	case errUnableToAddLink:
-		msg.Text = unableToAddLink
+		msg.Text = b.messages.Errors.UnableToAddLink
 	default:
-		msg.Text = "Произошла неизвестная ошибка"
+		msg.Text = b.messages.Errors.Default
 	}
 	b.bot.Send(msg)
 }

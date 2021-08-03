@@ -1,8 +1,10 @@
 package server
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"pocketerClient/internal/config"
 	"pocketerClient/internal/repository"
 	"pocketerClient/pkg/pocket"
 	"strconv"
@@ -12,24 +14,26 @@ type authorizationServer struct {
 	server          *http.Server
 	pocketClient    *pocket.Client
 	tokenRepository repository.TokenRepository
+	cfg             *config.Config
 	redirectURL     string
 }
 
 func NewAuthorizationServer(
 	pc *pocket.Client,
 	tr repository.TokenRepository,
-	redirectURL string,
+	cfg *config.Config,
 ) *authorizationServer {
 	return &authorizationServer{
 		pocketClient:    pc,
 		tokenRepository: tr,
-		redirectURL:     redirectURL,
+		cfg:             cfg,
+		redirectURL:     cfg.AuthServerURL,
 	}
 }
 
 func (s *authorizationServer) Start() error {
 	s.server = &http.Server{
-		Addr:    ":8080",
+		Addr:    fmt.Sprintf(":%s", s.cfg.AuthServerPort),
 		Handler: s,
 	}
 
