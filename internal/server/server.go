@@ -27,7 +27,7 @@ func NewAuthorizationServer(
 		pocketClient:    pc,
 		tokenRepository: tr,
 		cfg:             cfg,
-		redirectURL:     cfg.AuthServerURL,
+		redirectURL:     cfg.TelegramBotURL,
 	}
 }
 

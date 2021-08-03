@@ -1,4 +1,4 @@
-db_path: "./runtime/bot.db"
+db_path: "./bot.db"
 
 bot_url: "https://t.me/pocketer_big_bot"
 

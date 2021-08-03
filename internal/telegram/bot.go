@@ -26,7 +26,7 @@ func NewBot(
 		bot:             bot,
 		pocketClient:    pocketClient,
 		tokenRepository: tr,
-		redirectUrl:     cfg.TelegramBotURL,
+		redirectUrl:     cfg.AuthServerURL,
 		messages:        cfg.Messages,
 	}
 }
