@@ -1,15 +1,15 @@
 package main
 
 import (
+	"github.com/SukhorukovSlava/pocketer_bot/internal/config"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/repository/boltdb"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/server"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/telegram"
+	"github.com/SukhorukovSlava/pocketer_bot/pkg/pocket"
 	"github.com/boltdb/bolt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"log"
-	"pocketerClient/internal/config"
-	"pocketerClient/internal/repository"
-	"pocketerClient/internal/repository/boltdb"
-	"pocketerClient/internal/server"
-	"pocketerClient/internal/telegram"
-	"pocketerClient/pkg/pocket"
 )
 
 func main() {

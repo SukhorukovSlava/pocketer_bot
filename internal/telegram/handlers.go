@@ -2,9 +2,9 @@ package telegram
 
 import (
 	"context"
+	"github.com/SukhorukovSlava/pocketer_bot/pkg/pocket"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"net/url"
-	"pocketerClient/pkg/pocket"
 )
 
 const (

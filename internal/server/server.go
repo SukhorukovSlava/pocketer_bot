@@ -2,11 +2,11 @@ package server
 
 import (
 	"fmt"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/config"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
+	"github.com/SukhorukovSlava/pocketer_bot/pkg/pocket"
 	"log"
 	"net/http"
-	"pocketerClient/internal/config"
-	"pocketerClient/internal/repository"
-	"pocketerClient/pkg/pocket"
 	"strconv"
 )
 

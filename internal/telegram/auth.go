@@ -3,9 +3,9 @@ package telegram
 import (
 	"context"
 	"fmt"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
+	"github.com/SukhorukovSlava/pocketer_bot/pkg/pocket"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
-	"pocketerClient/internal/repository"
-	"pocketerClient/pkg/pocket"
 )
 
 func (b *Bot) initAuthorizationProcess(message *tgbotapi.Message) error {

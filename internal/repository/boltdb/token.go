@@ -3,8 +3,8 @@ package boltdb
 import (
 	"errors"
 	"fmt"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
 	"github.com/boltdb/bolt"
-	"pocketerClient/internal/repository"
 	"strconv"
 )
 

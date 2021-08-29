@@ -1,11 +1,11 @@
 package telegram
 
 import (
+	"github.com/SukhorukovSlava/pocketer_bot/internal/config"
+	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
+	"github.com/SukhorukovSlava/pocketer_bot/pkg/pocket"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"log"
-	"pocketerClient/internal/config"
-	"pocketerClient/internal/repository"
-	"pocketerClient/pkg/pocket"
 )
 
 type Bot struct {
