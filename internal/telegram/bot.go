@@ -1,11 +1,12 @@
 package telegram
 
 import (
+	"log"
+
 	"github.com/SukhorukovSlava/pocketer_bot/internal/config"
 	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
 	"github.com/SukhorukovSlava/pocketer_bot/pkg/pocket"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
-	"log"
 )
 
 type Bot struct {
@@ -45,25 +46,26 @@ func (b *Bot) Start() error {
 }
 
 func (b Bot) initUpdatesChannel() (tgbotapi.UpdatesChannel, error) {
-	u := tgbotapi.NewUpdate(0)
-	u.Timeout = 60
+	updateCfg := tgbotapi.NewUpdate(0)
+	updateCfg.Timeout = 60
 
-	return b.bot.GetUpdatesChan(u)
+	return b.bot.GetUpdatesChan(updateCfg)
 }
 
 func (b *Bot) handleUpdates(updates tgbotapi.UpdatesChannel) {
 	for update := range updates {
-		if update.Message == nil {
+		message := update.Message
+		if message == nil {
 			continue
 		}
-		if update.Message.IsCommand() {
-			if err := b.handleCommand(update.Message); err != nil {
-				b.handleError(update.Message.Chat.ID, err)
+		if message.IsCommand() {
+			if err := b.handleCommand(message); err != nil {
+				b.handleError(message.Chat.ID, err)
 			}
 			continue
 		}
-		if err := b.handleMessage(update.Message); err != nil {
-			b.handleError(update.Message.Chat.ID, err)
+		if err := b.handleMessage(message); err != nil {
+			b.handleError(message.Chat.ID, err)
 		}
 	}
 }

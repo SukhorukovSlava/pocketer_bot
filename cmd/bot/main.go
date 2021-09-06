@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/SukhorukovSlava/pocketer_bot/internal/config"
 	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
 	"github.com/SukhorukovSlava/pocketer_bot/internal/repository/boltdb"
@@ -9,7 +11,6 @@ import (
 	"github.com/SukhorukovSlava/pocketer_bot/pkg/pocket"
 	"github.com/boltdb/bolt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
-	"log"
 )
 
 func main() {
@@ -36,7 +37,11 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	defer db.Close()
+	defer func(db *bolt.DB) {
+		if err = db.Close(); err != nil {
+			log.Fatalln(err)
+		}
+	}(db)
 
 	tokenRepository := boltdb.NewTokenRepository(db)
 
