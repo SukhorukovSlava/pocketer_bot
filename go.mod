@@ -1,4 +1,4 @@
-module github.com/SukhorukovSlava/pocketer_bot
+module github.com/slavasukhorukov/pocketer_bot
 
 go 1.16
 

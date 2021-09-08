@@ -3,9 +3,10 @@ package boltdb
 import (
 	"errors"
 	"fmt"
-	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
-	"github.com/boltdb/bolt"
 	"strconv"
+
+	"github.com/boltdb/bolt"
+	"github.com/slavasukhorukov/pocketer_bot/internal/repository"
 )
 
 type TokenRepository struct {

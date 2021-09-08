@@ -2,12 +2,13 @@ package server
 
 import (
 	"fmt"
-	"github.com/SukhorukovSlava/pocketer_bot/internal/config"
-	"github.com/SukhorukovSlava/pocketer_bot/internal/repository"
-	"github.com/SukhorukovSlava/pocketer_bot/pkg/pocket"
 	"log"
 	"net/http"
 	"strconv"
+
+	"github.com/slavasukhorukov/pocketer_bot/internal/config"
+	"github.com/slavasukhorukov/pocketer_bot/internal/repository"
+	"github.com/slavasukhorukov/pocketer_bot/pkg/pocket"
 )
 
 type authorizationServer struct {
