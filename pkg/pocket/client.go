@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
@@ -188,7 +188,7 @@ func (c *Client) sendRequest(ctx context.Context, endpointUri string, body inter
 		return url.Values{}, errors.New(fmt.Sprintf("API Error: %s", res.Header.Get(xErrorHeader)))
 	}
 
-	resBody, err := ioutil.ReadAll(res.Body)
+	resBody, err := io.ReadAll(res.Body)
 	if err != nil {
 		return url.Values{}, errors.New(fmt.Sprintf("failed to read response body. error: %s", err.Error()))
 	}
